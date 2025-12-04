@@ -1,0 +1,191 @@
+   /*About*/
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            
+            background-color: #1a1a1a;
+            color: #f5f5dc;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 300px;
+            background-color: #d9d9d9;
+            padding: 40px 30px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar h1 {
+            font-size: 3rem;
+            color: #000;
+            margin-bottom: 60px;
+            font-weight: 900;
+            line-height: 0.9;
+        }
+
+        /*pf*/
+        
+        .profile-frame {
+            margin-top: 60px;
+            width: 100%;
+            aspect-ratio: 1;
+            border: 1px solid #1a1a1a;
+            background-color: #b8b8b8;
+            overflow: hidden;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /*r*/
+
+        .nav-section {
+            margin-bottom: 50px;
+        }
+
+        .nav-section h2 {
+            font-size: 1.8rem;
+            color: #000;
+            margin-bottom: 20px;
+            text-decoration: underline;
+            font-weight: 900;
+        }
+
+        .nav-section ul {
+            list-style: none;
+        }
+
+        .nav-section li {
+            margin-bottom: 15px;
+        }
+
+        .nav-section a {
+            color: #4a4a4a;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-family: 'Georgia', serif;
+            transition: color 0.3s;
+        }
+
+        .nav-section a:hover {
+            color: #000;
+        }
+
+        .back-button {
+            margin-top: -21px;
+            padding: 15px 30px;
+            border: 3px solid #000;
+            background-color: transparent;
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: 900;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #000;
+            color: #d9d9d9;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 300px;
+            flex: 1;
+            padding: 80px 100px;
+        }
+
+        .page-title {
+            font-size: 8rem;
+            font-weight: 900;
+            color: #f5f5dc;
+            margin-bottom: 60px;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .content-text {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #d9d9d9;
+            margin-bottom: 40px;
+            text-align: justify;
+
+            line-height: 1.7;
+            color: #f5f5dc;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            padding-left: 10px;
+            border-left: 2px solid rgba(245, 245, 220, 0.2);
+            transition: all 0.3s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 250px;
+            }
+
+            .main-content {
+                margin-left: 250px;
+                padding: 60px 60px;
+            }
+
+            .page-title {
+                font-size: 6rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                padding: 30px 20px;
+            }
+
+            .sidebar h1 {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            .nav-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 40px 30px;
+            }
+
+            .page-title {
+                font-size: 4rem;
+                margin-bottom: 40px;
+            }
+
+            .content-text {
+                font-size: 1.1rem;
+            }
+        }
