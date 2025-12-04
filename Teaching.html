@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/ho1.css">
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="texture-overlay"></div>
+    <div class="teaching-page" style="display: flex;">
+        <div class="teaching-sidebar">
+            <h2 class="sidebar-title">Teaching</h2>
+            <nav class="course-nav">
+                <a href="#course1" class="course-link active" onclick="showCourse(event, 1)">Course 1</a>
+                <a href="#course2" class="course-link" onclick="showCourse(event, 2)">Course 2</a>
+                <a href="#course3" class="course-link" onclick="showCourse(event, 3)">Course 3</a>
+                <a href="#course4" class="course-link" onclick="showCourse(event, 4)">Course 4</a>
+            </nav>
+            <button class="back-btn" onclick="window.location.href='hoempage.html'">← Back</button>
+        </div>
+        
+        <div class="teaching-content">
+            <div class="course-detail active" data-course="1">
+                <h1 class="course-title" data-title="COURSE 1">Course 1</h1>
+                <p class="course-description">Lorem ipsum dolor sit amet consectetur. Lectus vel nunc diam bibendum. At mauris posuere diam sagittis. Orci facilisis etiam nisl in tristique lectus mauris nullam aliquet. Et tempor facilisis amet sed et imperdiet mattis consequat risus.</p>
+                <div class="course-grid">
+                    <div class="course-item large-h"></div>
+                    <div class="course-item tall-r"></div>
+                    <div class="course-item small-1"></div>
+                    <div class="course-item small-2"></div>
+                    <div class="course-item wide-b"></div>
+                    <div class="course-item medium-r"></div>
+                </div>
+            </div>
+
+            <div class="course-detail" data-course="2">
+                <h1 class="course-title" data-title="COURSE 2">Course 2</h1>
+                <p class="course-description">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <div class="course-grid">
+                    <div class="course-item tall-r"></div>
+                    <div class="course-item large-h"></div>
+                    <div class="course-item wide-b"></div>
+                    <div class="course-item small-1"></div>
+                    <div class="course-item medium-r"></div>
+                    <div class="course-item small-2"></div>
+                </div>
+            </div>
+
+            <div class="course-detail" data-course="3">
+                <h1 class="course-title" data-title="COURSE 3">Course 3</h1>
+                <p class="course-description">Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam.</p>
+                <div class="course-grid">
+                    <div class="course-item small-1"></div>
+                    <div class="course-item small-2"></div>
+                    <div class="course-item tall-r"></div>
+                    <div class="course-item large-h"></div>
+                    <div class="course-item medium-r"></div>
+                    <div class="course-item wide-b"></div>
+                </div>
+            </div>
+
+            <div class="course-detail" data-course="4">
+                <h1 class="course-title" data-title="COURSE 4">Course 4</h1>
+                <p class="course-description">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet consectetur adipisci velit.</p>
+                <div class="course-grid">
+                    <div class="course-item medium-r"></div>
+                    <div class="course-item small-1"></div>
+                    <div class="course-item tall-r"></div>
+                    <div class="course-item wide-b"></div>
+                    <div class="course-item large-h"></div>
+                    <div class="course-item small-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <script>
+        function showDesign(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'flex';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'none';
+        }
+
+        function showTeaching(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'flex';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'none';
+        }
+
+        function showWriting(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'block';
+            document.querySelector('.about-page').style.display = 'none';
+        }
+
+        function showAbout(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'block';
+        }
+
+        function showHome() {
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'none';
+            document.querySelector('.home-page').style.display = 'block';
+        }
+
+        function showCourse(e, courseNum) {
+            e.preventDefault();
+            
+            // Get current and target course
+            const currentCourse = document.querySelector('.course-detail.active');
+            const targetCourse = document.querySelector(`.course-detail[data-course="${courseNum}"]`);
+            
+            if (currentCourse === targetCourse) return;
+            
+            const currentNum = parseInt(currentCourse.getAttribute('data-course'));
+            
+            // Remove active class from all links
+            document.querySelectorAll('.course-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            e.target.classList.add('active');
+            
+            // Determine slide direction
+            if (courseNum > currentNum) {
+                // Sliding to next course
+                currentCourse.classList.add('slide-out-left');
+                currentCourse.classList.remove('active');
+                
+                setTimeout(() => {
+                    targetCourse.classList.add('active');
+                    targetCourse.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        targetCourse.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            } else {
+                // Sliding to previous course
+                currentCourse.classList.remove('active');
+                currentCourse.style.transform = 'translateX(100%)';
+                
+                setTimeout(() => {
+                    targetCourse.classList.add('active');
+                    targetCourse.classList.add('slide-out-left');
+                    setTimeout(() => {
+                        targetCourse.classList.remove('slide-out-left');
+                        targetCourse.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            }
+            
+            // Clean up classes after animation
+            setTimeout(() => {
+                currentCourse.classList.remove('slide-out-left');
+                currentCourse.style.transform = '';
+            }, 650);
+        }
+
+        function showDesignCategory(e, category) {
+            e.preventDefault();
+            
+            // Get current and target design category
+            const currentDesign = document.querySelector('.design-detail.active');
+            const targetDesign = document.querySelector(`.design-detail[data-category="${category}"]`);
+            
+            if (currentDesign === targetDesign) return;
+            
+            // Define order of categories
+            const categories = ['books', 'broadsides', 'posters', 'ephemera'];
+            const currentIndex = categories.indexOf(currentDesign.getAttribute('data-category'));
+            const targetIndex = categories.indexOf(category);
+            
+            // Remove active class from all links
+            document.querySelectorAll('.design-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            e.target.classList.add('active');
+            
+            // Determine slide direction
+            if (targetIndex > currentIndex) {
+                // Sliding to next category
+                currentDesign.classList.add('slide-out-left');
+                currentDesign.classList.remove('active');
+                
+                setTimeout(() => {
+                    targetDesign.classList.add('active');
+                    targetDesign.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        targetDesign.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            } else {
+                // Sliding to previous category
+                currentDesign.classList.remove('active');
+                currentDesign.style.transform = 'translateX(100%)';
+                
+                setTimeout(() => {
+                    targetDesign.classList.add('active');
+                    targetDesign.classList.add('slide-out-left');
+                    setTimeout(() => {
+                        targetDesign.classList.remove('slide-out-left');
+                        targetDesign.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            }
+            
+            // Clean up classes after animation
+            setTimeout(() => {
+                currentDesign.classList.remove('slide-out-left');
+                currentDesign.style.transform = '';
+            }, 650);
+        }
+    </script>
+</body>
+</html>

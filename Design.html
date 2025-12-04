@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/ho1.css">
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="texture-overlay"></div>
+    <div class="design-page" style="display: flex;">
+        <div class="sidebar">
+            <h2 class="sidebar-title">Design</h2>
+            <nav class="design-nav">
+                <a href="#books" class="design-link active" onclick="showDesignCategory(event, 'books')">Books</a>
+                <a href="#broadsides" class="design-link" onclick="showDesignCategory(event, 'broadsides')">Broadsides</a>
+                <a href="#posters" class="design-link" onclick="showDesignCategory(event, 'posters')">Posters</a>
+                <a href="#ephemera" class="design-link" onclick="showDesignCategory(event, 'ephemera')">Ephemera</a>
+            </nav>
+            <button class="back-btn" onclick="window.location.href='hoempage.html'">← Back</button> 
+        </div>
+        
+        <div class="main-content">
+            <div class="design-detail active" data-category="books">
+                <h1 class="page-title" data-title="BOOKS">Books</h1>
+                <div class="gallery-grid">
+                    <div class="gallery-item large"></div>
+                    <div class="gallery-item tall"></div>
+                    <div class="gallery-item medium"></div>
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item wide"></div>
+                    <div class="gallery-item medium-tall"></div>
+                    <div class="gallery-item small-square"></div>
+                </div>
+            </div>
+
+            <div class="design-detail" data-category="broadsides">
+                <h1 class="page-title" data-title="BROADSIDES">Broadsides</h1>
+                <div class="gallery-grid">
+                    <div class="gallery-item tall"></div>
+                    <div class="gallery-item medium"></div>
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item large"></div>
+                    <div class="gallery-item medium-tall"></div>
+                    <div class="gallery-item small-square"></div>
+                    <div class="gallery-item wide"></div>
+                    <div class="gallery-item small"></div>
+                </div>
+            </div>
+
+            <div class="design-detail" data-category="posters">
+                <h1 class="page-title" data-title="POSTERS">Posters</h1>
+                <div class="gallery-grid">
+                    <div class="gallery-item medium"></div>
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item tall"></div>
+                    <div class="gallery-item small-square"></div>
+                    <div class="gallery-item large"></div>
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item wide"></div>
+                    <div class="gallery-item medium-tall"></div>
+                </div>
+            </div>
+
+            <div class="design-detail" data-category="ephemera">
+                <h1 class="page-title" data-title="EPHEMERA">Ephemera</h1>
+                <div class="gallery-grid">
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item wide"></div>
+                    <div class="gallery-item medium-tall"></div>
+                    <div class="gallery-item large"></div>
+                    <div class="gallery-item small-square"></div>
+                    <div class="gallery-item tall"></div>
+                    <div class="gallery-item small"></div>
+                    <div class="gallery-item medium"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <script>
+        function showDesign(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'flex';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'none';
+        }
+
+        function showTeaching(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'flex';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'none';
+        }
+
+        function showWriting(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'block';
+            document.querySelector('.about-page').style.display = 'none';
+        }
+
+        function showAbout(e) {
+            e.preventDefault();
+            document.querySelector('.home-page').style.display = 'none';
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'block';
+        }
+
+        function showHome() {
+            document.querySelector('.design-page').style.display = 'none';
+            document.querySelector('.teaching-page').style.display = 'none';
+            document.querySelector('.writing-page').style.display = 'none';
+            document.querySelector('.about-page').style.display = 'none';
+            document.querySelector('.home-page').style.display = 'block';
+        }
+
+        function showCourse(e, courseNum) {
+            e.preventDefault();
+            
+            // Get current and target course
+            const currentCourse = document.querySelector('.course-detail.active');
+            const targetCourse = document.querySelector(`.course-detail[data-course="${courseNum}"]`);
+            
+            if (currentCourse === targetCourse) return;
+            
+            const currentNum = parseInt(currentCourse.getAttribute('data-course'));
+            
+            // Remove active class from all links
+            document.querySelectorAll('.course-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            e.target.classList.add('active');
+            
+            // Determine slide direction
+            if (courseNum > currentNum) {
+                // Sliding to next course
+                currentCourse.classList.add('slide-out-left');
+                currentCourse.classList.remove('active');
+                
+                setTimeout(() => {
+                    targetCourse.classList.add('active');
+                    targetCourse.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        targetCourse.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            } else {
+                // Sliding to previous course
+                currentCourse.classList.remove('active');
+                currentCourse.style.transform = 'translateX(100%)';
+                
+                setTimeout(() => {
+                    targetCourse.classList.add('active');
+                    targetCourse.classList.add('slide-out-left');
+                    setTimeout(() => {
+                        targetCourse.classList.remove('slide-out-left');
+                        targetCourse.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            }
+            
+            // Clean up classes after animation
+            setTimeout(() => {
+                currentCourse.classList.remove('slide-out-left');
+                currentCourse.style.transform = '';
+            }, 650);
+        }
+
+        function showDesignCategory(e, category) {
+            e.preventDefault();
+            
+            // Get current and target design category
+            const currentDesign = document.querySelector('.design-detail.active');
+            const targetDesign = document.querySelector(`.design-detail[data-category="${category}"]`);
+            
+            if (currentDesign === targetDesign) return;
+            
+            // Define order of categories
+            const categories = ['books', 'broadsides', 'posters', 'ephemera'];
+            const currentIndex = categories.indexOf(currentDesign.getAttribute('data-category'));
+            const targetIndex = categories.indexOf(category);
+            
+            // Remove active class from all links
+            document.querySelectorAll('.design-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to clicked link
+            e.target.classList.add('active');
+            
+            // Determine slide direction
+            if (targetIndex > currentIndex) {
+                // Sliding to next category
+                currentDesign.classList.add('slide-out-left');
+                currentDesign.classList.remove('active');
+                
+                setTimeout(() => {
+                    targetDesign.classList.add('active');
+                    targetDesign.style.transform = 'translateX(100%)';
+                    setTimeout(() => {
+                        targetDesign.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            } else {
+                // Sliding to previous category
+                currentDesign.classList.remove('active');
+                currentDesign.style.transform = 'translateX(100%)';
+                
+                setTimeout(() => {
+                    targetDesign.classList.add('active');
+                    targetDesign.classList.add('slide-out-left');
+                    setTimeout(() => {
+                        targetDesign.classList.remove('slide-out-left');
+                        targetDesign.style.transform = 'translateX(0)';
+                    }, 10);
+                }, 50);
+            }
+            
+            // Clean up classes after animation
+            setTimeout(() => {
+                currentDesign.classList.remove('slide-out-left');
+                currentDesign.style.transform = '';
+            }, 650);
+        }
+    </script>
+</body>
+</html>
